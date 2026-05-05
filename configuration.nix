@@ -13,7 +13,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  
+  # Kernel - linuxPackages_latest pour corriger CVE-2026-31431 (Copy Fail)
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "navi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -95,6 +97,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow Firefox
+  programs.firefox.enable = true;
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -103,6 +109,7 @@
   gajim
   vesktop
   git
+  unzip
   ];
 
 
