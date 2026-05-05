@@ -110,6 +110,7 @@
   vesktop
   git
   unzip
+  kitty
   ];
 
 
