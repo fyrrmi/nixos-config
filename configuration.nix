@@ -13,6 +13,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Fix Dirty Frag
+  boot.blacklistedKernelModules = [ "esp4" "esp6" "rxrpc" ];
   
   # Kernel - linuxPackages_latest pour corriger CVE-2026-31431 (Copy Fail)
   boot.kernelPackages = pkgs.linuxPackages_latest;
