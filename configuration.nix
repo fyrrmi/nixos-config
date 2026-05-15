@@ -103,14 +103,6 @@
   # Allow Firefox
   programs.firefox.enable = true;
 
-  # Allow Neovim
-  programs.neovim = {
-  enable = true;
-  defaultEditor = true;
-  viAlias = true;
-  vimAlias = true;
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -121,7 +113,8 @@
   git
   unzip
   kitty
-  ];
+  zed-editor 
+ ];
 
 
   # Enable Steam
