@@ -94,8 +94,8 @@
     ];
   };
 
-  # Allow flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable Flakes
+  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -103,12 +103,19 @@
   # Allow Firefox
   programs.firefox.enable = true;
 
+  # Allow Neovim
+  programs.neovim = {
+  enable = true;
+  defaultEditor = true;
+  viAlias = true;
+  vimAlias = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   librewolf
-  neofetch
+  fastfetch
   gajim
   vesktop
   git
