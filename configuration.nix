@@ -94,7 +94,15 @@
     ];
   };
 
-  # Enable Flakes
+  # Garbage collector : Automatically removing gens
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+    persistent = true;
+  };
+
+  # Flakes
   # nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
