@@ -114,7 +114,7 @@
   unzip
   kitty
   zed-editor
-  mullvad
+  mullvad-vpn
  ];
 
 
