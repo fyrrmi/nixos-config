@@ -16,7 +16,7 @@
 
   # Fix Dirty Frag
   boot.blacklistedKernelModules = [ "esp4" "esp6" "rxrpc" ];
-  
+
   # Kernel - linuxPackages_latest pour corriger CVE-2026-31431 (Copy Fail)
   boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "navi"; # Define your hostname.
@@ -113,7 +113,8 @@
   git
   unzip
   kitty
-  zed-editor 
+  zed-editor
+  mullvad
  ];
 
 
@@ -122,7 +123,7 @@
   enable = true;
   extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
-  
+
   # Driver natif Xbox
   hardware.xpadneo.enable = false;
 
@@ -130,7 +131,7 @@
   services.udev.extraRules = ''
   SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"
   '';
-  boot.kernelModules = ["hid-nintendo"];  
+  boot.kernelModules = ["hid-nintendo"];
 
   # Test
   powerManagement.enable = true;
