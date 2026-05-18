@@ -14,13 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Fix Dirty Frag
-  boot.blacklistedKernelModules = [ "esp4" "esp6" "rxrpc" ];
   # Disable i915 panel self refresh / prevents deep CPU c-states.
   boot.kernelParams = [ "i915.enable_psr=0" ];
 
-  # Kernel - linuxPackages_latest pour corriger CVE-2026-31431 (Copy Fail)
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "navi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
