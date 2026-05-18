@@ -123,6 +123,10 @@
   kitty
   zed-editor
   mullvad-vpn
+  # diagnostics
+  kdePackages.qttools
+  powertop
+  intel-gpu-tools
  ];
 
 
