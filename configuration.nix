@@ -16,6 +16,8 @@
 
   # Fix Dirty Frag
   boot.blacklistedKernelModules = [ "esp4" "esp6" "rxrpc" ];
+  # Kill PSR
+  boot.kernelParams = [ "i915.enable_psr=0" ];
 
   # Kernel - linuxPackages_latest pour corriger CVE-2026-31431 (Copy Fail)
   boot.kernelPackages = pkgs.linuxPackages_latest;
