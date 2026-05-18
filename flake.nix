@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs, ... }: {
 
-    nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
       ];
