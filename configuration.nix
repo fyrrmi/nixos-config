@@ -86,6 +86,7 @@
     isNormalUser = true;
     description = "paul";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -108,6 +109,9 @@
 
   # Allow Firefox
   programs.firefox.enable = true;
+
+  # Allow Fish shell
+  programs.fish.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
