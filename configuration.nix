@@ -119,7 +119,7 @@
   librewolf
   fastfetch
   gajim
-  vesktop
+  equibop
   git
   unzip
   kitty
