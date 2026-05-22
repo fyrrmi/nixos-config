@@ -121,6 +121,13 @@
   services.mullvad-vpn.enable = true;
   services.resolved.enable = true;
 
+  # Tailscale
+  services.tailscale.enable = true;
+  networking.firewall = {
+  trustedInterfaces = [ "tailscale0" ];
+  allowedUDPPorts = [ config.services.tailscale.port ];
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
