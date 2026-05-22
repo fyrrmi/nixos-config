@@ -118,7 +118,7 @@
 
   # Allow Mullvad-vpn
   services.mullvad-vpn.enable = true;
-  services.resolved.enable = true;
+  services.resolved.enable = true
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -131,6 +131,7 @@
   unzip
   kitty
   zed-editor
+  claude-code
   # diagnostics
   kdePackages.qttools
   powertop
