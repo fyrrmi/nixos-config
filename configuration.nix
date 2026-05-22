@@ -116,6 +116,10 @@
   # Allow Fish shell
   programs.fish.enable = true;
 
+  # Allow Mullvad-vpn
+  services.mullvad-vpn.enable = true;
+  services.resolved.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -127,7 +131,6 @@
   unzip
   kitty
   zed-editor
-  mullvad-vpn
   # diagnostics
   kdePackages.qttools
   powertop
