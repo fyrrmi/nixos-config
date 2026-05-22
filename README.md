@@ -1,9 +1,11 @@
 # nixos-config
 
-personal nixos configuration, built from scratch as a learning project.
+my personal nixos configuration, built from scratch as a learning project.
+it's a work in progress, not a reference setup.
 
-## environment
+## structure
 
-- kde plasma 6 on wayland
-- sddm display manager
-- pipewire for audio
+- `flake.nix` — entry point
+- `configuration.nix` — main system config, imports the modules below
+- `hardware-configuration.nix` — generated hardware scan
+- `gaming.nix` — steam + nintendo controller support, split into its own module
