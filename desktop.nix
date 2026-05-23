@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Enable the X11 windowing system.
@@ -40,6 +40,10 @@
 
   # Bluetooth
   hardware.bluetooth.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    rofi-wayland
+  ];
 
   programs.hyprland.enable = true;
 }
