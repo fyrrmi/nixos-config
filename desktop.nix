@@ -42,7 +42,7 @@
   hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
-    rofi-wayland
+    rofi
   ];
 
   programs.hyprland.enable = true;
