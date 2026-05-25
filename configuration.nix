@@ -101,6 +101,7 @@
   kitty
   zed-editor
   claude-code
+  wayle
   # diagnostics
   kdePackages.qttools
   powertop
