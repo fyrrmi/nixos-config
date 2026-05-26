@@ -1,10 +1,9 @@
 { pkgs, ... }:
 
 {
-  # Enable Steam
   programs.steam = {
-  enable = true;
-  extraCompatPackages = [ pkgs.proton-ge-bin ];
+    enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
   # Nintendo compatibility
