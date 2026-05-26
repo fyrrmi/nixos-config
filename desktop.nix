@@ -36,6 +36,7 @@
 
   environment.systemPackages = with pkgs; [
     rofi
+    awww
   ];
 
   programs.hyprland.enable = true;
