@@ -1,0 +1,34 @@
+[username]
+style_user = "bg:#81bbeb fg:#1a1a1a bold"
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+style = "bg:#81bbeb fg:#1a1a1a bold"
+format = "[@$hostname ]($style)"
+ssh_only = false
+
+[directory]
+style = "bg:#b487d5 fg:#1a1a1a bold"
+format = "[ $path ]($style)"
+truncation_length = 3
+
+[git_branch]
+style = "bg:#f6c177 fg:#1a1a1a bold"
+format = "[ $branch ]($style)"
+
+[git_status]
+style = "bg:#eb6f92 fg:#1a1a1a bold"
+format = "[ $all_status ]($style)"
+
+[cmd_duration]
+style = "bg:#f6c177 fg:#1a1a1a bold"
+format = "[ $duration ]($style)"
+min_time = 2000
+
+[python]
+disabled = true
+
+[character]
+success_symbol = "[❯](bold #b487d5)"
+error_symbol = "[❯](bold #eb6f92)"
