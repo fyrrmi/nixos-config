@@ -56,9 +56,17 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   programs.firefox.enable = true;
 
   programs.fish.enable = true;
+  programs.fish.interactiveShellInit = ''
+    set fish_greeting
+    starship init fish | source
+  '';
 
   services.mullvad-vpn.enable = true;
   services.resolved.enable = true;
@@ -79,6 +87,7 @@
     kitty
     zed-editor
     claude-code
+    starship
     wayle
     # diagnostics
     kdePackages.qttools
