@@ -1,0 +1,25 @@
+{
+  "modules": [
+    "title", // user@hostname (paul@navi)
+    "separator", // ligne de tirets sous le titre
+    "os", // nixos + version
+    "host", // modèle de la machine (thinkpad x1 carbon)
+    "kernel", // version du noyau linux
+    "uptime", // temps depuis le dernier boot
+    "packages", // nombre de paquets installés (via nix)
+    "shell", // bash, zsh, fish...
+    "display", // résolution de l'écran
+    "de", // desktop environment (vide si tu lances que hyprland)
+    "wm", // window manager (hyprland)
+    "wmtheme", // thème du wm si défini
+    "terminal", // émulateur de terminal utilisé
+    "cpu", // intel core ultra 7 155h
+    "gpu", // intel arc intégré
+    "memory", // ram utilisée / totale
+    "disk", // espace disque /
+    "battery", // état batterie (utile sur laptop)
+    "locale", // langue système
+    "break", // ligne vide
+    "colors", // palette de couleurs du terminal en bas
+  ],
+}
