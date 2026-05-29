@@ -40,6 +40,7 @@
   environment.systemPackages = with pkgs; [
     rofi
     awww
+    brightnessctl
   ];
 
   programs.hyprland.enable = true;
