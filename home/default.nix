@@ -8,6 +8,7 @@
     ./kitty.nix
     ./fastfetch.nix
     ./starship.nix
+    ./wayle.nix
   ];
 
   home.username = "paul";
