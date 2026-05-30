@@ -248,7 +248,6 @@ hl.config({
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
-
         follow_mouse = 1,
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
@@ -272,6 +271,13 @@ hl.device({
     sensitivity = -0.5,
 })
 
+if hostname == "games" then
+    hl.config({
+        input = {
+            accel_profile = "flat",
+        },
+    })
+end
 
 -- keybindings map key combinations to actions like launching apps, closing windows, or switching workspaces.
 -- mainmod is set to super (the windows key) and used as the prefix for most shortcuts.
