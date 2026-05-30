@@ -9,6 +9,11 @@
 -- Create your files separately and then require them like this:
 -- require("myColors")
 
+-- détecte la machine via /etc/hostname pour les réglages per-host
+local hostname = io.open("/etc/hostname"):read("*l")
+
+-- scale moniteur : adapté à l'écran de chaque machine
+local monitorScale = hostname == "games" and 1.07 or 1.8
 
 -- this section tells hyprland how to set up your displays.
 -- "preferred" mode uses the native resolution, and "auto" position lets hyprland arrange monitors automatically.
@@ -21,7 +26,7 @@ hl.monitor({
     output   = "",
     mode     = "preferred",
     position = "auto",
-    scale    = "1.8",
+    scale    = monitorScale,
 })
 
 
