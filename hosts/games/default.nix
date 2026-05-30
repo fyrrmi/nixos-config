@@ -2,11 +2,14 @@
 { ... }:
 
 {
-  imports = [
-    # ./hardware.nix          # à générer avec nixos-generate-config
-    ../../modules/core
-  ];
-
+ imports = [
+  ./hardware.nix
+  ../../modules/core
+  ../../modules/desktop
+  ../../modules/hardware/nvidia.nix
+  ../../modules/hardware/bluetooth.nix
+  ../../modules/programs/gaming.nix
+];
   networking.hostName = "games";
 
   system.stateVersion = "25.11";
