@@ -14,6 +14,7 @@ local hostname = io.open("/etc/hostname"):read("*l")
 
 -- scale moniteur : adapté à l'écran de chaque machine
 local monitorScale = hostname == "games" and 1.07 or 1.8
+local monitorMode = hostname == "games" and "2560x1440@360" or "preferred"
 
 -- this section tells hyprland how to set up your displays.
 -- "preferred" mode uses the native resolution, and "auto" position lets hyprland arrange monitors automatically.
@@ -24,7 +25,7 @@ local monitorScale = hostname == "games" and 1.07 or 1.8
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "",
-    mode     = "preferred",
+    mode     = monitorMode,
     position = "auto",
     scale    = monitorScale,
 })
