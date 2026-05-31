@@ -9,6 +9,8 @@
     ../../modules/desktop
     ../../modules/hardware/intel.nix
     ../../modules/hardware/bluetooth.nix
+    ../../modules/programs/cli.nix
+    ../../modules/programs/office.nix
   ];
 
   networking.hostName = "navi";

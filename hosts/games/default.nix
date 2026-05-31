@@ -8,7 +8,9 @@
   ../../modules/desktop
   ../../modules/hardware/nvidia.nix
   ../../modules/hardware/bluetooth.nix
+  ../../modules/programs/cli.nix
   ../../modules/programs/gaming.nix
+  ../../modules/programs/office.nix
 ];
   networking.hostName = "games";
 
