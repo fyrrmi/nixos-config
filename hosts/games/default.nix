@@ -11,6 +11,7 @@
   ../../modules/programs/cli.nix
   ../../modules/programs/gaming.nix
   ../../modules/programs/office.nix
+  ../../modules/programs/apps.nix
 ];
   networking.hostName = "games";
 
