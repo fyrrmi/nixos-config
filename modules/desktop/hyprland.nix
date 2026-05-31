@@ -11,5 +11,6 @@
     awww
     brightnessctl
     wayle
+    hyprshot
   ];
 }
