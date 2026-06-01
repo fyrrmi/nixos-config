@@ -4,6 +4,11 @@
 > personal nixos configuration, built from scratch as a learning project.
 > it's a work in progress, not a reference setup.
 
+## TO-DO:
+dig into hjem and see if its worth replacing home-manager
+find an alternative to rofi
+dig into foot terminal
+
 modular flake-based config supporting two machines. home-manager is used in
 minimal mode — it manages symlinks to native dotfiles only, never via the
 `programs.*` options. native config files in `config/` remain the single

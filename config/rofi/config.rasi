@@ -1,0 +1,11 @@
+configuration {
+    modi: "drun,window,run";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    display-drun: "";
+    display-window: "";
+    display-run: "";
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+@theme "ayu-dark"
