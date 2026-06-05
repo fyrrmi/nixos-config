@@ -15,5 +15,9 @@
 ];
   networking.hostName = "games";
 
+  boot.kernelModules = [ "nct6775" ];
+
+  programs.coolercontrol.enable = true;
+
   system.stateVersion = "25.11";
 }
