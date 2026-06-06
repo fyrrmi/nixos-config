@@ -31,13 +31,7 @@
     nixosConfigurations.games = nixpkgs.lib.nixosSystem {
       modules = [
         ./hosts/games/default.nix
-        home-manager.nixosModules.home-manager
-        {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hm-backup";
-            home-manager.users.paul = import ./home;
-        }
+        hjem.nixosModules.default
       ];
     };
 
