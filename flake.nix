@@ -2,14 +2,18 @@
   description = "NixOS config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+      nix-darwin = {
+        url = "github:nix-darwin/nix-darwin/master";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, hjem, ... }: {
+  outputs = { self, nixpkgs, hjem, nix-darwin, ... }: {
 
     nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
       modules = [
@@ -22,6 +26,13 @@
       modules = [
         ./hosts/games/default.nix
         hjem.nixosModules.default
+      ];
+    };
+
+    darwinConfigurations.sommei = nix-darwin.lib.darwinSystem {
+      modules = [
+        ./hosts/sommei/default.nix
+        hjem.darwinModules.default
       ];
     };
 
