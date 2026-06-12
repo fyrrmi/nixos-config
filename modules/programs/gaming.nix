@@ -8,7 +8,10 @@
     extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
-  environment.systemPackages = [ pkgs.archipelago ];
+  environment.systemPackages = [
+    pkgs.archipelago
+    pkgs.poptracker # tracker de progression pour randomizers archipelago
+  ];
 
   # règles udev manettes nintendo (joy-con, pro controller)
   services.udev.extraRules = ''

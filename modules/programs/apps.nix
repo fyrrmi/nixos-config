@@ -4,7 +4,8 @@
 {
   environment.systemPackages = with pkgs; [
     brave
-    imv  # viewer d'image natif wayland, minimaliste, clavier
+    imv
+    obs-studio
      ];
 
      # associations type de fichier (mime) → application par défaut
