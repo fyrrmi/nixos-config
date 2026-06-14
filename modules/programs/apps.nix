@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     brave
     imv
+    mpv
     obs-studio
      ];
 
