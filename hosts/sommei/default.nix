@@ -4,6 +4,10 @@
  nixpkgs.config.allowUnfree = true;
  system.primaryUser = "user";
  system.stateVersion = 5;
+
+ # touch id
+  security.pam.services.sudo_local.touchIdAuth = true;
+
  # fish
    programs.fish.enable = true;
    environment.shells = [ pkgs.fish ];
