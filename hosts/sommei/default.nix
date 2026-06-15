@@ -23,6 +23,7 @@
        ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
        ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
        ".config/starship.toml".source = ../../config/starship/starship.toml;
+       ".config/fish/config.fish".source = ../../config/fish/config.fish;
      };
    };
 }
