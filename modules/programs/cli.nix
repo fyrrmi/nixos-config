@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    tmux
-    just
-  ];
+ environment.systemPackages = with pkgs; [
+   tmux
+   just
+   yazi
+ ];
 }
