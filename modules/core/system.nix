@@ -39,6 +39,10 @@
 
   programs.firefox.enable = true;
 
+  # service de montage des disques amovibles (clés usb)
+  # pas activé par défaut hors plasma → on l'active explicitement
+  services.udisks2.enable = true;
+
   environment.systemPackages = with pkgs; [
     fastfetch
     gajim
