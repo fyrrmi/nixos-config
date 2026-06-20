@@ -10,7 +10,7 @@ in
 
     enabledExtensions = with spicePkgs.extensions; [
       adblock
-      shufflePlus
+      shuffle
     ];
 
     theme = spicePkgs.themes.catppuccin;

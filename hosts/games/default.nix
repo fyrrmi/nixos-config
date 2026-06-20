@@ -1,4 +1,3 @@
-# placeholder — sera complété au moment de l'install de games (phase 2)
 { pkgs, inputs, ... }:
 
 {
@@ -16,7 +15,7 @@
     ../../modules/programs/spicetify.nix
     inputs.spicetify-nix.nixosModules.spicetify
   ];
-];
+
 
 environment.systemPackages = with pkgs; [
   kdePackages.kdenlive
