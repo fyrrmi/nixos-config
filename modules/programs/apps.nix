@@ -4,6 +4,7 @@
 {
   environment.systemPackages = with pkgs; [
     brave
+    kdePackages.ark
     kdePackages.dolphin        # explorateur de fichiers
     kdePackages.kio            # plomberie kio (requis)
     kdePackages.kio-extras     # protocoles en plus (sftp, etc.)

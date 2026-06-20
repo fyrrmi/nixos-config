@@ -7,13 +7,17 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-      nix-darwin = {
-        url = "github:nix-darwin/nix-darwin/master";
-        inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, hjem, nix-darwin, ... }: {
+  outputs = inputs@{ self, nixpkgs, hjem, nix-darwin, ... }: {
 
     nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
       modules = [
@@ -23,6 +27,7 @@
     };
 
     nixosConfigurations.games = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/games/default.nix
         hjem.nixosModules.default
