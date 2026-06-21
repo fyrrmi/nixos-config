@@ -1,5 +1,5 @@
 # module: hardware/bluetooth
-# bluetooth activé, éteint au démarrage par défaut
+# bluetooth enabled, powered off at boot by default
 { ... }:
 
 {

@@ -1,5 +1,5 @@
 # module: core/users
-# utilisateur paul + shell fish
+# user paul + fish shell
 { pkgs, ... }:
 
 {

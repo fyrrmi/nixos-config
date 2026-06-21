@@ -1,5 +1,5 @@
-# host navi — thinkpad personnel
-# importe les modules communs + matériel intel spécifique au laptop
+# host: navi
+# personal thinkpad — intel laptop hardware
 { pkgs, ... }:
 
 {
@@ -17,10 +17,11 @@
 
   networking.hostName = "navi";
 
-  # gestion énergie laptop
+  # laptop power management
   powerManagement.enable = true;
 
   environment.systemPackages = with pkgs; [
+    kdePackages.kdenlive
     powertop
   ];
 

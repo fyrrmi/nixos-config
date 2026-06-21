@@ -1,6 +1,6 @@
 # module: core/networking
-# networkmanager + tailscale + mullvad + règles firewall associées
-{ config, pkgs,... }:
+# networkmanager + tailscale + mullvad + firewall rules
+{ config, pkgs, ... }:
 
 {
   networking.networkmanager.enable = true;

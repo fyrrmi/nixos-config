@@ -1,4 +1,7 @@
+# module: desktop/hjem
+# declarative dotfiles for user paul (symlinks via hjem)
 { config, ... }:
+
 {
   hjem.users.paul = {
     directory = "/home/paul";
@@ -13,11 +16,12 @@
 
       ".config/starship/starship.toml".source = ../../config/starship/starship.toml;
 
+      # per-host runtime file: navi gets its own, everything else gets games
       ".config/wayle/runtime.toml".source =
         if config.networking.hostName == "navi"
         then ../../config/wayle/runtime-navi.toml
         else ../../config/wayle/runtime-games.toml;
-      ".config/wayle/tombi.toml".source  = ../../config/wayle/tombi.toml;
+      ".config/wayle/tombi.toml".source = ../../config/wayle/tombi.toml;
       ".config/wayle/config.toml".source = ../../config/wayle/config.toml;
       ".config/wayle/schema.json".source = ../../config/wayle/schema.json;
     };

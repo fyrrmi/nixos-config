@@ -1,5 +1,5 @@
 # module: core/system
-# boot, locale, daemon nix, paquets communs, firefox
+# boot, locale, nix daemon, shared packages, firefox
 { pkgs, ... }:
 
 {
@@ -22,7 +22,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # garbage collection automatique
+  # automatic garbage collection
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -39,8 +39,7 @@
 
   programs.firefox.enable = true;
 
-  # service de montage des disques amovibles (clés usb)
-  # pas activé par défaut hors plasma → on l'active explicitement
+  # mounts removable drives (usb sticks); not enabled outside plasma, so i enable it explicitly
   services.udisks2.enable = true;
 
   environment.systemPackages = with pkgs; [

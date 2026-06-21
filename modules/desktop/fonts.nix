@@ -1,5 +1,5 @@
 # module: desktop/fonts
-# polices système — jetbrains mono nerd font
+# system fonts — jetbrains mono nerd font
 { pkgs, ... }:
 
 {

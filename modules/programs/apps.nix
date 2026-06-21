@@ -1,20 +1,22 @@
-# modules/programs/apps.nix
-# applis graphiques généralistes (navigateur, etc.)
+# module: programs/apps
+# general graphical apps (browser, file manager, media)
 { pkgs, ... }:
+
 {
   environment.systemPackages = with pkgs; [
     brave
     kdePackages.ark
-    kdePackages.dolphin        # explorateur de fichiers
-    kdePackages.kio            # plomberie kio (requis)
-    kdePackages.kio-extras     # protocoles en plus (sftp, etc.)
-    kdePackages.kio-fuse       # monter des fs distants
-    kdePackages.breeze-icons   # thème d'icônes (évite les icônes vides)
+    kdePackages.dolphin        # file manager
+    kdePackages.kio            # kio plumbing (required)
+    kdePackages.kio-extras     # extra protocols (sftp, etc.)
+    kdePackages.kio-fuse       # mount remote filesystems
+    kdePackages.breeze-icons   # icon theme (avoids blank icons)
     imv
     mpv
     obs-studio
   ];
-  # associations type de fichier (mime) → application par défaut
+
+  # file type (mime) → default application associations
   xdg.mime.defaultApplications = {
     "image/png"     = "imv.desktop";
     "image/jpeg"    = "imv.desktop";

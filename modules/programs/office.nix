@@ -1,4 +1,4 @@
-# modules/programs/office.nix
+# module: programs/office
 # onlyoffice suite
 { pkgs, ... }:
 

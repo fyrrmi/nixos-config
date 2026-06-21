@@ -1,28 +1,29 @@
 # module: hardware/nvidia
-# drivers nvidia propriétaires pour la rtx 4070 sur games
+# proprietary nvidia drivers for the rtx 4070 on games
 { config, ... }:
+
 {
-  # active l'accélération graphique (remplace l'ancien hardware.opengl.enable)
+  # enables graphics acceleration (replaces the old hardware.opengl.enable)
   hardware.graphics.enable = true;
 
-  # déclare nvidia comme pilote vidéo, nécessaire même sous wayland
+  # declares nvidia as video driver, required even under wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-    # indispensable pour wayland (hyprland)
+    # required for wayland (hyprland)
     modesetting.enable = true;
 
-    # options laptop, désactivées sur desktop branché secteur
+    # laptop options, disabled on a desktop running on AC power
     powerManagement.enable = false;
     powerManagement.finegrained = false;
 
-    # driver propriétaire fermé (plus mature que le module open)
+    # closed proprietary driver (more mature than the open module)
     open = false;
 
-    # gui nvidia-settings pour régler ventilos, fréquences, etc.
+    # nvidia-settings gui to tune fans, clocks, etc.
     nvidiaSettings = true;
 
-    # épinglage sur la branche stable du driver
+    # pin to the stable driver branch
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 }

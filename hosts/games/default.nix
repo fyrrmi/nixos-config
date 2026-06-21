@@ -1,3 +1,5 @@
+# host: games
+# desktop pc — gaming/multimedia
 { pkgs, inputs, ... }:
 
 {
@@ -16,10 +18,10 @@
     inputs.spicetify-nix.nixosModules.spicetify
   ];
 
+  environment.systemPackages = with pkgs; [
+    kdePackages.kdenlive
+  ];
 
-environment.systemPackages = with pkgs; [
-  kdePackages.kdenlive
-];
   networking.hostName = "games";
 
   boot.kernelModules = [ "nct6775" ];

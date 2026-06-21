@@ -1,6 +1,7 @@
 # module: programs/spicetify
-# spotify modifié via spicetify-nix (thème + extensions)
+# spotify patched via spicetify-nix (theme + extensions)
 { pkgs, inputs, ... }:
+
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in
@@ -14,9 +15,9 @@ in
     ];
 
     theme = {
-          name = "Eva24";
-          src = ../../config/spicetify/Eva24;
-        };
-        colorScheme = "eva24";
+      name = "Eva24";
+      src = ../../config/spicetify/Eva24;
+    };
+    colorScheme = "eva24";
   };
 }

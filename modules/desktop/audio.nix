@@ -1,5 +1,5 @@
 # module: desktop/audio
-# pipewire + rtkit (pulseaudio désactivé)
+# pipewire + rtkit (pulseaudio disabled)
 { ... }:
 
 {

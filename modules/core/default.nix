@@ -1,5 +1,5 @@
 # module: core
-# regroupe les modules système communs à tous les hosts
+# groups shared system modules for every hosts
 { ... }:
 
 {

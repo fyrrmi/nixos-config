@@ -1,5 +1,5 @@
 # module: desktop/sddm
-# serveur d'affichage + sddm + plasma6 fallback + disposition clavier us
+# display server + sddm + us keyboard layout
 { ... }:
 
 {

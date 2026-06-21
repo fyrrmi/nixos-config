@@ -1,5 +1,5 @@
 # module: desktop/printing
-# support impression cups
+# cups printing support
 { ... }:
 
 {

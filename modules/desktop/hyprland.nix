@@ -1,5 +1,5 @@
 # module: desktop/hyprland
-# hyprland + hyprlock + paquets de l'écosystème wayland
+# hyprland + hyprlock + wayland ecosystem packages
 { pkgs, ... }:
 
 {

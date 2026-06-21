@@ -1,6 +1,7 @@
-# modules/desktop/cursor.nix
-# thème de curseur : bibata modern ice (blanc, coins arrondis)
+# module: desktop/cursor
+# cursor theme — bibata modern ice (white, rounded corners)
 { pkgs, ... }:
+
 {
   environment.systemPackages = with pkgs; [
     bibata-cursors
