@@ -20,6 +20,7 @@
   outputs = inputs@{ self, nixpkgs, hjem, nix-darwin, ... }: {
 
     nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/navi/default.nix
         hjem.nixosModules.default
@@ -35,6 +36,7 @@
     };
 
     darwinConfigurations.sommei = nix-darwin.lib.darwinSystem {
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/sommei/default.nix
         hjem.darwinModules.default

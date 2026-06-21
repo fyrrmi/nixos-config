@@ -13,7 +13,10 @@ in
       shuffle
     ];
 
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    theme = {
+          name = "Eva24";
+          src = ../../config/spicetify/Eva24;
+        };
+        colorScheme = "eva24";
   };
 }
