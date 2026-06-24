@@ -45,25 +45,35 @@
   };
 
   environment.systemPackages = with pkgs; [
-      git
-      curl
-      htop
-      tmux
-      tree
-      neovim
-      fastfetch
-      screenfetch
-      ffmpeg
-      yt-dlp
-      imagemagick
-      exiftool
-      figlet
-      restic
-      poppler_utils   # fournit pdftotext etc. ; build parfois fragile sur darwin
-      nodejs_22
-      grc
-      vcprompt
-      wimlib
-      handbrake        # sur darwin = HandBrakeCLI uniquement (pas de gui)
-      mole
-    ];
+    git
+    curl
+    htop
+    tmux
+    tree
+    neovim
+    fastfetch
+    screenfetch
+    ffmpeg
+    yt-dlp
+    imagemagick
+    exiftool
+    figlet
+    restic
+    poppler-utils
+    nodejs_22
+    grc
+    vcprompt
+    wimlib
+  ];
+
+  # hjem — declarative dotfiles
+  hjem.users.user = {
+    directory = "/Users/user";
+    files = {
+      ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
+      ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
+      ".config/starship.toml".source = ../../config/starship/starship.toml;
+      ".config/fish/config.fish".source = ../../config/fish/config.fish;
+    };
+  };
+}
