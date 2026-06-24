@@ -20,14 +20,50 @@
     shell = pkgs.fish;
   };
 
-  # hjem — declarative dotfiles
-  hjem.users.user = {
-    directory = "/Users/user";
-    files = {
-      ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
-      ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
-      ".config/starship.toml".source = ../../config/starship/starship.toml;
-      ".config/fish/config.fish".source = ../../config/fish/config.fish;
-    };
+  # homebrew — piloté déclarativement par nix-darwin
+  homebrew = {
+    enable = true;
+    onActivation.cleanup = "none";
+    brews = [
+      "bash"
+    ];
+    casks = [
+      "android-platform-tools"
+      "brave-browser"
+      "equibop"
+      "font-jetbrains-mono-nerd-font"
+      "gstreamer-runtime"
+      "knockknock"
+      "marta"
+      "monal"
+      "mullvad-browser"
+      "mullvad-vpn"
+      "obsidian"
+      "utm"
+      "xquartz"
+    ];
   };
-}
+
+  environment.systemPackages = with pkgs; [
+      git
+      curl
+      htop
+      tmux
+      tree
+      neovim
+      fastfetch
+      screenfetch
+      ffmpeg
+      yt-dlp
+      imagemagick
+      exiftool
+      figlet
+      restic
+      poppler_utils   # fournit pdftotext etc. ; build parfois fragile sur darwin
+      nodejs_22
+      grc
+      vcprompt
+      wimlib
+      handbrake        # sur darwin = HandBrakeCLI uniquement (pas de gui)
+      mole
+    ];
