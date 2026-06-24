@@ -23,9 +23,11 @@
   # homebrew — piloté déclarativement par nix-darwin
   homebrew = {
     enable = true;
-    onActivation.cleanup = "none";
+    onActivation.cleanup = "uninstall";
     brews = [
       "bash"
+      "handbrake"
+      "mole"
     ];
     casks = [
       "android-platform-tools"
