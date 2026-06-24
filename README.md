@@ -1,6 +1,7 @@
 # nixos-config
 
 > [!WARNING]
+> Documentatiom might be out-of-date.
 > this is my **personal** nix configuration, built from scratch as a
 > learning project. it is tailored to my own machines and habits, so most of
 > it will not work out of the box for you.
