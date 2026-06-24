@@ -76,4 +76,35 @@
       ".config/fish/config.fish".source = ../../config/fish/config.fish;
     };
   };
+
+  # réglages macos déclaratifs
+  system.defaults.dock = {
+    autohide = false;
+    orientation = "bottom";
+    tilesize = 42;
+    show-recents = false;
+  };
+
+  system.defaults.finder = {
+    AppleShowAllExtensions = true;
+    AppleShowAllFiles = true;
+    FXPreferredViewStyle = "glyv";
+    ShowPathbar = true;
+    ShowStatusBar = false;
+  };
+
+  system.defaults.trackpad = {
+    Clicking = true;
+    TrackpadThreeFingerDrag = true;
+  };
+
+  system.defaults.NSGlobalDomain = {
+    KeyRepeat = 3;
+    InitialKeyRepeat = 15;
+  };
+
+  system.defaults.screencapture = {
+    location = "~/Pictures/screenshots";
+    type = "png";
+  };
 }
