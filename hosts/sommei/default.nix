@@ -90,7 +90,6 @@
   system.defaults.finder = {
     AppleShowAllExtensions = true;
     AppleShowAllFiles = true;
-    FXPreferredViewStyle = "glyv";
     ShowPathbar = true;
     ShowStatusBar = false;
   };
