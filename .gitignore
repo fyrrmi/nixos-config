@@ -1,4 +1,5 @@
 result
+.DS_Store
 .swp
 wallpapers/*
 config/hypr/hyprland.conf
