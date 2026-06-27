@@ -43,6 +43,7 @@
       "obsidian"
       "utm"
       "xquartz"
+      "hopper-disassembler"
     ];
   };
 
