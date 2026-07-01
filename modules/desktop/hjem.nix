@@ -16,7 +16,7 @@
 
       ".config/fastfetch/config.jsonc".source = ../../config/fastfetch/config.jsonc;
 
-      ".config/starship/starship.toml".source = ../../config/starship/starship.toml;
+      ".config/starship.toml".source = ../../config/starship/starship.toml;
 
       # per-host runtime file: navi gets its own, everything else gets games
       ".config/wayle/runtime.toml".source =
