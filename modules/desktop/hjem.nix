@@ -12,6 +12,8 @@
       ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
       ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
 
+      ".config/wezterm/wezterm.lua".source = ../../config/wezterm/wezterm.lua;
+
       ".config/fastfetch/config.jsonc".source = ../../config/fastfetch/config.jsonc;
 
       ".config/starship/starship.toml".source = ../../config/starship/starship.toml;

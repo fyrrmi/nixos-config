@@ -14,7 +14,7 @@ config.line_height = 1.1
 
 -- fenetre
 config.window_background_opacity = 0.92
-config.window_decorations = 'RESIZE'
+config.window_decorations = 'NONE'
 config.window_padding = { left = 16, right = 16, top = 14, bottom = 12 }
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
