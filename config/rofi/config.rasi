@@ -1,6 +1,6 @@
 configuration {
     modi: "drun,window,run";
-    terminal: "kitty";
+    terminal: "wezterm";
     drun-display-format: "{icon} {name}";
     display-drun: "";
     display-window: "";
