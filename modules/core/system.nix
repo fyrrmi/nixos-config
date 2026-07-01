@@ -49,6 +49,7 @@
     git
     unzip
     kitty
+    wezterm
     zed-editor
     claude-code
     starship
