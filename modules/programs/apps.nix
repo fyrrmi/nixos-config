@@ -14,6 +14,7 @@
     imv
     mpv
     obs-studio
+    nushell
   ];
 
   # file type (mime) → default application associations

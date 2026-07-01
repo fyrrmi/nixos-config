@@ -16,6 +16,9 @@
 
       ".config/fastfetch/config.jsonc".source = ../../config/fastfetch/config.jsonc;
 
+      ".config/nushell/config.nu".source = ../../config/nushell/config.nu;
+      ".config/nushell/env.nu".source = ../../config/nushell/env.nu;
+
       ".config/starship.toml".source = ../../config/starship/starship.toml;
 
       # per-host runtime file: navi gets its own, everything else gets games

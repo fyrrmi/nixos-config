@@ -7,7 +7,7 @@
     isNormalUser = true;
     description = "paul";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
 
   programs.fish.enable = true;
