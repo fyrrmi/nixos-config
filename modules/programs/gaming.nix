@@ -9,6 +9,9 @@
   };
 
   environment.systemPackages = [
+    pkgs.atlauncher
+    pkgs.prismlauncher
+    pkgs.jdk25
     pkgs.archipelago
     pkgs.poptracker # progression tracker for archipelago randomizers
     (pkgs.sm64coopdx.overrideAttrs (old: {
