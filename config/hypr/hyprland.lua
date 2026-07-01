@@ -106,14 +106,14 @@ hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 7,
+        gaps_in  = 6,
+        gaps_out = 10,
 
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgb(FF8F40)"}, angle = 45 },
-            inactive_border = "rgb(1A1D23)",
+            active_border   = { colors = {"rgb(BF7593)"}, angle = 45 },
+            inactive_border = "rgb(151019)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -126,7 +126,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 0,
+        rounding       = 10,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows

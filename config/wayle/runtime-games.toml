@@ -9,9 +9,9 @@ background-opacity = 95
 border-location = "all"
 border-width = 2
 border-color = "bg-overlay"
-button-rounding = "none"
+button-rounding = "sm"
 button-gap = 0.25
-button-group-rounding = "none"
+button-group-rounding = "sm"
 
 [[bar.layout]]
 monitor = "*"
