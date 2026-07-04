@@ -245,7 +245,7 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout = "us",
+        kb_layout = "us,fr",
         kb_variant = "",
         kb_model   = "",
         kb_options = "",
@@ -300,6 +300,7 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("hyprctl switchxkblayout all next"))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -391,4 +392,22 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+
+hl.window_rule({
+    name      = "assign-brave-workspace",
+    match     = { class = "^(brave-browser)$" },
+    workspace = "3 silent",
+})
+
+hl.window_rule({
+    name      = "assign-equibop-workspace",
+    match     = { class = "^(equibop)$" },
+    workspace = "2 silent",
+})
+
+hl.window_rule({
+    name      = "assign-gajim-workspace",
+    match     = { class = "^(org.gajim.Gajim)$" },
+    workspace = "2 silent",
 })
