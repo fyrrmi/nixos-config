@@ -5,6 +5,7 @@
 {
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.primaryUser = "user";
   system.stateVersion = 5;
 
@@ -44,6 +45,8 @@
       "utm"
       "xquartz"
       "hopper-disassembler"
+      "handbrake-app"
+      "zen"
     ];
   };
 
@@ -52,6 +55,8 @@
     curl
     htop
     tmux
+    cmux
+    age
     tree
     neovim
     fastfetch
