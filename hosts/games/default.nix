@@ -24,6 +24,8 @@
 
   networking.hostName = "games";
 
+  fyrr.wayle.runtimeFile = ../../config/wayle/runtime-games.toml;
+
   boot.kernelModules = [ "nct6775" ];
 
   programs.coolercontrol.enable = true;

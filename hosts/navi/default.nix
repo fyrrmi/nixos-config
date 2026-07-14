@@ -17,6 +17,8 @@
 
   networking.hostName = "navi";
 
+  fyrr.wayle.runtimeFile = ../../config/wayle/runtime-navi.toml;
+
   # laptop power management
   powerManagement.enable = true;
 
