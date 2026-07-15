@@ -14,7 +14,7 @@
     pkgs.jdk25
     pkgs.archipelago
     pkgs.poptracker # progression tracker for archipelago randomizers
-    (pkgs.sm64coopdx.overrideAttrs (old: {
+    (pkgs.sm64coopdx.overrideAttrs (_: {
       version = "1.5.1";
       src = pkgs.fetchFromGitHub {
         owner = "coop-deluxe";
