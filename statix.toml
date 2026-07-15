@@ -1,0 +1,5 @@
+# empty_pattern: `{ ... }:` is idiomatic for NixOS modules; repeated_keys: intentional dotted keys like `a.b.c`
+disabled = [
+  "empty_pattern",
+  "repeated_keys",
+]
