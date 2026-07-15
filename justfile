@@ -11,11 +11,11 @@ lint:
 check:
     #!/usr/bin/env bash
     set -euo pipefail
-    system="$(nix eval --raw --expr builtins.currentSystem)"
-    nix build ".#checks.${system}.formatting"
     if [ "$(uname)" = "Darwin" ]; then
+        nix build .#checks.aarch64-darwin.formatting
         nix eval .#darwinConfigurations.sommei.system.drvPath
     else
+        nix build .#checks.x86_64-linux.formatting
         nix eval .#nixosConfigurations.navi.config.system.build.toplevel.drvPath
         nix eval .#nixosConfigurations.games.config.system.build.toplevel.drvPath
     fi
