@@ -15,13 +15,25 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, hjem, nix-darwin, ... }:
+  outputs = inputs@{ self, nixpkgs, hjem, nix-darwin, treefmt-nix, ... }:
   let
     theme = import ./theme.nix;
+    systems = [ "x86_64-linux" "aarch64-darwin" ];
+    forAllSystems = f: nixpkgs.lib.genAttrs systems f;
+    treefmtEval = forAllSystems (system:
+      treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix);
   in
   {
+    formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+    checks = forAllSystems (system: {
+      formatting = treefmtEval.${system}.config.build.check self;
+    });
 
     nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs theme; };
