@@ -17,10 +17,14 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, hjem, nix-darwin, ... }: {
+  outputs = inputs@{ self, nixpkgs, hjem, nix-darwin, ... }:
+  let
+    theme = import ./theme.nix;
+  in
+  {
 
     nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs theme; };
       modules = [
         ./hosts/navi/default.nix
         hjem.nixosModules.default
@@ -28,7 +32,7 @@
     };
 
     nixosConfigurations.games = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs theme; };
       modules = [
         ./hosts/games/default.nix
         hjem.nixosModules.default
@@ -36,7 +40,7 @@
     };
 
     darwinConfigurations.sommei = nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs theme; };
       modules = [
         ./hosts/sommei/default.nix
         hjem.darwinModules.default
