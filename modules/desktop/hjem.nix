@@ -1,6 +1,12 @@
 # module: desktop/hjem
 # declarative dotfiles for user paul (symlinks via hjem)
-{ config, lib, pkgs, theme, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  theme,
+  ...
+}:
 
 let
   # wezterm.lua généré depuis theme.nix — plus de couleurs en dur

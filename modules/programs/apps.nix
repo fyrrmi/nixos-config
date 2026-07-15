@@ -6,11 +6,11 @@
   environment.systemPackages = with pkgs; [
     brave
     kdePackages.ark
-    kdePackages.dolphin        # file manager
-    kdePackages.kio            # kio plumbing (required)
-    kdePackages.kio-extras     # extra protocols (sftp, etc.)
-    kdePackages.kio-fuse       # mount remote filesystems
-    kdePackages.breeze-icons   # icon theme (avoids blank icons)
+    kdePackages.dolphin # file manager
+    kdePackages.kio # kio plumbing (required)
+    kdePackages.kio-extras # extra protocols (sftp, etc.)
+    kdePackages.kio-fuse # mount remote filesystems
+    kdePackages.breeze-icons # icon theme (avoids blank icons)
     imv
     mpv
     obs-studio
@@ -19,13 +19,13 @@
 
   # file type (mime) → default application associations
   xdg.mime.defaultApplications = {
-    "image/png"     = "imv.desktop";
-    "image/jpeg"    = "imv.desktop";
-    "image/gif"     = "imv.desktop";
-    "image/webp"    = "imv.desktop";
-    "image/bmp"     = "imv.desktop";
-    "image/tiff"    = "imv.desktop";
+    "image/png" = "imv.desktop";
+    "image/jpeg" = "imv.desktop";
+    "image/gif" = "imv.desktop";
+    "image/webp" = "imv.desktop";
+    "image/bmp" = "imv.desktop";
+    "image/tiff" = "imv.desktop";
     "image/svg+xml" = "imv.desktop";
-    "image/x-icon"  = "imv.desktop";
+    "image/x-icon" = "imv.desktop";
   };
 }

@@ -6,7 +6,10 @@
   users.users.paul = {
     isNormalUser = true;
     description = "paul";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.nushell;
   };
 

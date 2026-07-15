@@ -21,43 +21,55 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, hjem, nix-darwin, treefmt-nix, ... }:
-  let
-    theme = import ./theme.nix;
-    systems = [ "x86_64-linux" "aarch64-darwin" ];
-    forAllSystems = f: nixpkgs.lib.genAttrs systems f;
-    treefmtEval = forAllSystems (system:
-      treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix);
-  in
-  {
-    formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
-    checks = forAllSystems (system: {
-      formatting = treefmtEval.${system}.config.build.check self;
-    });
-
-    nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs theme; };
-      modules = [
-        ./hosts/navi/default.nix
-        hjem.nixosModules.default
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      hjem,
+      nix-darwin,
+      treefmt-nix,
+      ...
+    }:
+    let
+      theme = import ./theme.nix;
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
       ];
-    };
+      forAllSystems = f: nixpkgs.lib.genAttrs systems f;
+      treefmtEval = forAllSystems (
+        system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
+    in
+    {
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+      checks = forAllSystems (system: {
+        formatting = treefmtEval.${system}.config.build.check self;
+      });
 
-    nixosConfigurations.games = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs theme; };
-      modules = [
-        ./hosts/games/default.nix
-        hjem.nixosModules.default
-      ];
-    };
+      nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs theme; };
+        modules = [
+          ./hosts/navi/default.nix
+          hjem.nixosModules.default
+        ];
+      };
 
-    darwinConfigurations.sommei = nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit inputs theme; };
-      modules = [
-        ./hosts/sommei/default.nix
-        hjem.darwinModules.default
-      ];
-    };
+      nixosConfigurations.games = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs theme; };
+        modules = [
+          ./hosts/games/default.nix
+          hjem.nixosModules.default
+        ];
+      };
 
-  };
+      darwinConfigurations.sommei = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit inputs theme; };
+        modules = [
+          ./hosts/sommei/default.nix
+          hjem.darwinModules.default
+        ];
+      };
+
+    };
 }
