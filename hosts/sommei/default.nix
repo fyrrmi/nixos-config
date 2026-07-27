@@ -85,8 +85,10 @@
       ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
       ".config/starship.toml".source = ../../config/starship/starship.toml;
       ".config/fish/config.fish".source = ../../config/fish/config.fish;
+      "Library/Application Support/zen/Profiles/rwjd3g6d.Default (release)-1/user.js".source = ../../config/zen/user.js;
     };
   };
+
 
   # réglages macos déclaratifs
   system.defaults.dock = {
