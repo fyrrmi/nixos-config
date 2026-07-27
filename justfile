@@ -1,45 +1,41 @@
+# nixos-config. `just` pour lister.
+flake := justfile_directory()
+
+# liste les recettes
 default:
     @just --list
 
+# rebuild + switch ce host
+switch:
+    @if [ "$(uname)" = "Darwin" ]; then \
+        darwin-rebuild switch --flake {{flake}}#$(hostname -s); \
+    else \
+        sudo nixos-rebuild switch --flake {{flake}}#$(hostname); \
+    fi
+
+# build seul, pas d'activation
+build:
+    @if [ "$(uname)" = "Darwin" ]; then \
+        darwin-rebuild build --flake {{flake}}#$(hostname -s); \
+    else \
+        sudo nixos-rebuild build --flake {{flake}}#$(hostname); \
+    fi
+
+# formate tous les fichiers nix
 fmt:
     nix fmt
 
+# statix + deadnix, épinglés au nixpkgs du lock (--inputs-from garantit que
+# local et CI lancent la même version des linters)
 lint:
-    nix run --inputs-from . nixpkgs#statix -- check .
-    nix run --inputs-from . nixpkgs#deadnix -- --fail .
+    nix run --inputs-from {{flake}} nixpkgs#statix -- check .
+    nix run --inputs-from {{flake}} nixpkgs#deadnix -- --fail .
 
+# gate local : format + lint. miroir exact de ce que fait la CI.
 check:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    if [ "$(uname)" = "Darwin" ]; then
-        nix build .#checks.aarch64-darwin.formatting
-        nix eval .#darwinConfigurations.sommei.system.drvPath
-    else
-        nix build .#checks.x86_64-linux.formatting
-        nix eval .#nixosConfigurations.navi.config.system.build.toplevel.drvPath
-        nix eval .#nixosConfigurations.games.config.system.build.toplevel.drvPath
-    fi
+    nix build --no-link {{flake}}#checks.$(nix eval --impure --raw --expr 'builtins.currentSystem').formatting
+    just lint
 
-switch:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    if [ "$(uname)" = "Darwin" ]; then
-        sudo darwin-rebuild switch --flake .
-    else
-        sudo nixos-rebuild switch --flake .
-    fi
-
-build:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    if [ "$(uname)" = "Darwin" ]; then
-        darwin-rebuild build --flake .
-    else
-        nixos-rebuild build --flake .
-    fi
-
+# met à jour tous les inputs
 update:
     nix flake update
-
-bump input:
-    nix flake update {{ input }}

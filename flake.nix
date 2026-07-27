@@ -32,11 +32,10 @@
     }:
     let
       theme = import ./theme.nix;
-      systems = [
+      forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
         "aarch64-darwin"
       ];
-      forAllSystems = f: nixpkgs.lib.genAttrs systems f;
       treefmtEval = forAllSystems (
         system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
       );
@@ -46,6 +45,25 @@
       checks = forAllSystems (system: {
         formatting = treefmtEval.${system}.config.build.check self;
       });
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            name = "nixos-config";
+            packages = with pkgs; [
+              nixd
+              nixfmt
+              statix
+              deadnix
+              just
+            ];
+          };
+        }
+      );
 
       nixosConfigurations.navi = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs theme; };
