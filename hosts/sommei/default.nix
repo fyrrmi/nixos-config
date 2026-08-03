@@ -24,6 +24,15 @@
     shell = pkgs.fish;
   };
 
+  # nix-homebrew — installe et épingle homebrew lui-même.
+  # nix-darwin (bloc homebrew ci-dessous) ne gère que les paquets.
+  nix-homebrew = {
+    enable = true;
+    user = "user";
+    autoMigrate = true;
+    enableRosetta = false;
+  };
+
   # homebrew — piloté déclarativement par nix-darwin
   homebrew = {
     enable = true;
@@ -85,10 +94,10 @@
       ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
       ".config/starship.toml".source = ../../config/starship/starship.toml;
       ".config/fish/config.fish".source = ../../config/fish/config.fish;
-      "Library/Application Support/zen/Profiles/rwjd3g6d.Default (release)-1/user.js".source = ../../config/zen/user.js;
+      "Library/Application Support/zen/Profiles/rwjd3g6d.Default (release)-1/user.js".source =
+        ../../config/zen/user.js;
     };
   };
-
 
   # réglages macos déclaratifs
   system.defaults.dock = {

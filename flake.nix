@@ -19,6 +19,7 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
   outputs =
@@ -27,6 +28,7 @@
       nixpkgs,
       hjem,
       nix-darwin,
+      nix-homebrew,
       treefmt-nix,
       ...
     }:
@@ -86,6 +88,7 @@
         modules = [
           ./hosts/sommei/default.nix
           hjem.darwinModules.default
+          nix-homebrew.darwinModules.nix-homebrew
         ];
       };
 

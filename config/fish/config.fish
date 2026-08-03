@@ -1,5 +1,6 @@
-# Add M1 Homebrew binaries (critical for brew, git, etc.)
-set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
+# homebrew formulae (bash, handbrake, mole) — en fin de PATH,
+# nix passe devant en cas de conflit
+set -gx PATH $PATH /opt/homebrew/bin /opt/homebrew/sbin
 # npm global binaries
 set -gx PATH $HOME/.npm-global/bin $PATH
 # Personal scripts
