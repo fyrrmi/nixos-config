@@ -58,7 +58,7 @@ in
     casks = [
       "android-platform-tools"
       "brave-browser"
-      "equibop"
+      "vesktop"
       "font-jetbrains-mono-nerd-font"
       "gstreamer-runtime"
       "knockknock"
