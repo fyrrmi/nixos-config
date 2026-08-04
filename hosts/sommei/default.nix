@@ -97,6 +97,7 @@ in
     grc
     vcprompt
     wimlib
+    just
   ];
 
   # hjem — declarative dotfiles
@@ -107,25 +108,24 @@ in
       ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
       ".config/starship.toml".source = ../../config/starship/starship.toml;
       ".config/fish/config.fish".source = ../../config/fish/config.fish;
-      "Library/Application Support/zen/Profiles/default/user.js".source =
-              ../../config/zen/user.js;
+      "Library/Application Support/zen/Profiles/default/user.js".source = ../../config/zen/user.js;
     };
   };
 
   # zen réécrit profiles.ini lui-même : impossible de le symlinker depuis
-    # le store, qui est en lecture seule. on le sème une seule fois, s'il
-    # est absent, avec un nom de dossier FIXE. Sinon zen tire 8 caractères
-    # au hasard au premier lancement et le user.js ci-dessus pointe dans le
-    # vide. idempotent : ne touche à rien si le fichier existe déjà.
-    system.activationScripts.postActivation.text = ''
-      zenDir="/Users/user/Library/Application Support/zen"
-      if [ ! -e "$zenDir/profiles.ini" ]; then
-        mkdir -p "$zenDir/Profiles/default"
-        cp ${zenProfilesIni} "$zenDir/profiles.ini"
-        chmod u+w "$zenDir/profiles.ini"
-        chown -R user:staff "$zenDir"
-      fi
-    '';
+  # le store, qui est en lecture seule. on le sème une seule fois, s'il
+  # est absent, avec un nom de dossier FIXE. Sinon zen tire 8 caractères
+  # au hasard au premier lancement et le user.js ci-dessus pointe dans le
+  # vide. idempotent : ne touche à rien si le fichier existe déjà.
+  system.activationScripts.postActivation.text = ''
+    zenDir="/Users/user/Library/Application Support/zen"
+    if [ ! -e "$zenDir/profiles.ini" ]; then
+      mkdir -p "$zenDir/Profiles/default"
+      cp ${zenProfilesIni} "$zenDir/profiles.ini"
+      chmod u+w "$zenDir/profiles.ini"
+      chown -R user:staff "$zenDir"
+    fi
+  '';
 
   # réglages macos déclaratifs
   system.defaults.dock = {
