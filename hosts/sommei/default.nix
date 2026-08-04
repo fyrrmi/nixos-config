@@ -2,6 +2,19 @@
 # macbook pro m1 — nix-darwin/daily driver
 { pkgs, ... }:
 
+let
+  zenProfilesIni = pkgs.writeText "zen-profiles.ini" ''
+    [General]
+    StartWithLastProfile=1
+    Version=2
+
+    [Profile0]
+    Name=default
+    IsRelative=1
+    Path=Profiles/default
+    Default=1
+  '';
+in
 {
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
@@ -94,10 +107,25 @@
       ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
       ".config/starship.toml".source = ../../config/starship/starship.toml;
       ".config/fish/config.fish".source = ../../config/fish/config.fish;
-      "Library/Application Support/zen/Profiles/rwjd3g6d.Default (release)-1/user.js".source =
-        ../../config/zen/user.js;
+      "Library/Application Support/zen/Profiles/default/user.js".source =
+              ../../config/zen/user.js;
     };
   };
+
+  # zen réécrit profiles.ini lui-même : impossible de le symlinker depuis
+    # le store, qui est en lecture seule. on le sème une seule fois, s'il
+    # est absent, avec un nom de dossier FIXE. Sinon zen tire 8 caractères
+    # au hasard au premier lancement et le user.js ci-dessus pointe dans le
+    # vide. idempotent : ne touche à rien si le fichier existe déjà.
+    system.activationScripts.postActivation.text = ''
+      zenDir="/Users/user/Library/Application Support/zen"
+      if [ ! -e "$zenDir/profiles.ini" ]; then
+        mkdir -p "$zenDir/Profiles/default"
+        cp ${zenProfilesIni} "$zenDir/profiles.ini"
+        chmod u+w "$zenDir/profiles.ini"
+        chown -R user:staff "$zenDir"
+      fi
+    '';
 
   # réglages macos déclaratifs
   system.defaults.dock = {
