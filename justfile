@@ -8,7 +8,7 @@ default:
 # rebuild + switch ce host
 switch:
     @if [ "$(uname)" = "Darwin" ]; then \
-        darwin-rebuild switch --flake {{flake}}#$(hostname -s); \
+        darwin-rebuild switch --flake {{flake}}#$(scutil --get LocalHostName); \
     else \
         sudo nixos-rebuild switch --flake {{flake}}#$(hostname); \
     fi
@@ -16,7 +16,7 @@ switch:
 # build seul, pas d'activation
 build:
     @if [ "$(uname)" = "Darwin" ]; then \
-        darwin-rebuild build --flake {{flake}}#$(hostname -s); \
+        darwin-rebuild build --flake {{flake}}#$(scutil --get LocalHostName); \
     else \
         sudo nixos-rebuild build --flake {{flake}}#$(hostname); \
     fi
