@@ -89,6 +89,9 @@ in
         ".config/wayle/tombi.toml".source = ../../config/wayle/tombi.toml;
         ".config/wayle/config.toml".source = ../../config/wayle/config.toml;
         ".config/wayle/schema.json".source = ../../config/wayle/schema.json;
+
+        ".config/rofi/config.rasi".source = ../../config/rofi/config.rasi;
+        ".config/rofi/ayu-dark.rasi".source = ../../config/rofi/ayu-dark.rasi;
       };
     };
   };
