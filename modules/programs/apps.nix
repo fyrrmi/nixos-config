@@ -4,6 +4,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    bitwarden
     brave
     kdePackages.ark
     kdePackages.dolphin # file manager
@@ -15,6 +16,7 @@
     mpv
     obs-studio
     nushell
+    ente-auth
   ];
 
   # file type (mime) → default application associations

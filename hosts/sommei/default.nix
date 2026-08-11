@@ -58,6 +58,8 @@ in
     casks = [
       "android-platform-tools"
       "brave-browser"
+      "bitwarden"
+      "ente-auth"
       "vesktop"
       "font-jetbrains-mono-nerd-font"
       "gstreamer-runtime"

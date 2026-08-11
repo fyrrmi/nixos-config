@@ -12,5 +12,6 @@
     brightnessctl
     wayle
     hyprshot
+    playerctl
   ];
 }
