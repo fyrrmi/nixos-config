@@ -143,6 +143,8 @@ in
         ".config/wayle/config.toml".source = ../../config/wayle/config.toml;
         ".config/wayle/schema.json".source = ../../config/wayle/schema.json;
 
+        ".config/git/config".source = ../../config/git/config;
+
         ".config/rofi/config.rasi".source = ../../config/rofi/config.rasi;
         ".config/rofi/ayu-dark.rasi".source = ../../config/rofi/ayu-dark.rasi;
       };
