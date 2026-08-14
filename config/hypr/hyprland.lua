@@ -11,6 +11,7 @@
 
 -- détecte la machine via /etc/hostname pour les réglages per-host
 local hostname = io.open("/etc/hostname"):read("*l")
+local theme = require("hypr-theme")
 
 -- scale moniteur : adapté à l'écran de chaque machine
 local monitorScale = hostname == "games" and 1.07 or 1.8
@@ -112,8 +113,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgb(BF7593)"}, angle = 45 },
-            inactive_border = "rgb(151019)",
+            active_border   = { colors = {theme.active_border}, angle = 45 },
+            inactive_border = theme.inactive_border,
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps

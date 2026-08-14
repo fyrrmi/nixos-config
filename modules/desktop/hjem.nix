@@ -51,6 +51,16 @@ let
     }
   '';
 
+  # hypr-theme.lua généré depuis theme.nix — couleurs de bordure pour hyprland.lua
+  hyprThemeLua = pkgs.writeText "hypr-theme.lua" ''
+    -- hypr-theme.lua — variant "${theme.variant}"
+    -- généré par nix depuis theme.nix, ne pas éditer à la main
+    return {
+        active_border = "rgb(${builtins.substring 1 6 theme.accentHex})",
+        inactive_border = "rgb(${builtins.substring 1 6 theme.palette.surface0})",
+    }
+  '';
+
   # wezterm.lua généré depuis theme.nix — plus de couleurs en dur
   weztermLua = pkgs.writeText "wezterm.lua" ''
     -- wezterm.lua — theme "${theme.variant}" (serial experiments lain)
@@ -113,6 +123,7 @@ in
       directory = "/home/paul";
       files = {
         ".config/hypr/hyprland.lua".source = ../../config/hypr/hyprland.lua;
+        ".config/hypr/hypr-theme.lua".source = hyprThemeLua;
         ".config/hypr/hyprlock.conf".source = hyprlockConf;
 
         ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
