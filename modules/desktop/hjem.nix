@@ -9,6 +9,48 @@
 }:
 
 let
+  # hyprlock.conf généré depuis theme.nix — plus de couleurs en dur
+  hyprlockConf = pkgs.writeText "hyprlock.conf" ''
+    background {
+        monitor =
+        path = /home/paul/code/nixos-config/wallpapers/01-cwb.jpg
+        blur_passes = 3
+        blur_size = 8
+    }
+
+    input-field {
+        monitor =
+        size = 300, 60
+        position = 0, 0
+        halign = center
+        valign = center
+        outline_thickness = 2
+        rounding = 0
+        dots_center = true
+        fade_on_empty = false
+        placeholder_text = <span foreground="#${
+          builtins.substring 1 6 theme.palette.subtext0
+        }">Password...</span>
+        font_color = rgb(${builtins.substring 1 6 theme.palette.text})
+        inner_color = rgb(${builtins.substring 1 6 theme.palette.base})
+        outer_color = rgb(${builtins.substring 1 6 theme.accentHex})
+        check_color = rgb(${builtins.substring 1 6 theme.palette.green})
+        fail_color = rgb(${builtins.substring 1 6 theme.palette.red})
+        shadow_passes = 2
+    }
+
+    label {
+        monitor =
+        text = cmd[update:1000] echo "$(date +'%I:%M')"
+        color = rgba(${builtins.substring 1 6 theme.accentHex}, 1.0)
+        font_size = 24
+        font_family = JetBrainsMono Nerd Font
+        position = 0, 100
+        halign = center
+        valign = center
+    }
+  '';
+
   # wezterm.lua généré depuis theme.nix — plus de couleurs en dur
   weztermLua = pkgs.writeText "wezterm.lua" ''
     -- wezterm.lua — theme "${theme.variant}" (serial experiments lain)
@@ -71,7 +113,7 @@ in
       directory = "/home/paul";
       files = {
         ".config/hypr/hyprland.lua".source = ../../config/hypr/hyprland.lua;
-        ".config/hypr/hyprlock.conf".source = ../../config/hypr/hyprlock.conf;
+        ".config/hypr/hyprlock.conf".source = hyprlockConf;
 
         ".config/kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
         ".config/kitty/themes/eva24.conf".source = ../../config/kitty/themes/eva24.conf;
