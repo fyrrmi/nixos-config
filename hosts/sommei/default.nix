@@ -100,6 +100,7 @@ in
     vcprompt
     wimlib
     just
+    starship
   ];
 
   # hjem — declarative dotfiles
