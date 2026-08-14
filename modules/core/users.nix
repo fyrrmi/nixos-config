@@ -1,5 +1,5 @@
 # module: core/users
-# user paul + fish shell
+# user paul + nushell
 { pkgs, ... }:
 
 {
@@ -13,9 +13,4 @@
     shell = pkgs.nushell;
   };
 
-  programs.fish.enable = true;
-  programs.fish.interactiveShellInit = ''
-    set fish_greeting
-    starship init fish | source
-  '';
 }
